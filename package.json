@@ -1,0 +1,73 @@
+{
+  "name": "projeto-srt",
+  "private": true,
+  "version": "0.0.0",
+  "description": "DiSub - Aplicativo para tradução de arquivos SRT",
+  "author": "Seu Nome",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "electron": "electron .",
+    "dist": "electron-builder"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-icons": "^5.4.0",
+    "react-scripts": "^5.0.1"
+  },
+  "devDependencies": {
+    "electron": "^34.0.2",
+    "electron-builder": "^25.1.8",
+    "eslint": "^9.17.0"
+  },
+  "main": "main.js",
+  "homepage": "./",
+  "build": {
+    "appId": "com.seuapp.disub",
+    "productName": "DiSub",
+    "asar": false,
+    "files": [
+      "build/**/*",
+      "backend/**/*",
+      "main.js",
+      "package.json"
+    ],
+    "extraResources": [
+      {
+        "from": "backend/",
+        "to": "backend/",
+        "filter": ["**/*"]
+      }
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "portable",
+          "arch": ["x64", "ia32"]
+        }
+      ]
+    },
+    "portable": {
+      "artifactName": "DiSub_Portable.exe"
+    },
+    "directories": {
+      "buildResources": "assets"
+    },
+    "extraMetadata": {
+      "main": "main.js"
+    }
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
